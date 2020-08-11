@@ -7,7 +7,8 @@ SECRET_KEY = 'Orem1tImgkVqAlLBrGockguSEdGNSiaD'
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
 def hear():
-    with open('recording.wav', 'rb') as f:
+    path = '/Users/Mac/.pyenv/versions/3.6.11/envs/finale/Listen1/recording.wav'
+    with open(path, 'rb') as f:
         audio_data = f.read()
 
     result = client.asr(audio_data, 'wav', 16000, {
@@ -15,8 +16,10 @@ def hear():
     })
 
     result_text = result["result"][0]
-
+    f = open('hear.txt', 'w')
+    f.write(result_text)
     print(result_text)
+    f.close()
 
     return result_text
 

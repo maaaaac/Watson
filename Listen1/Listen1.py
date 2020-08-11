@@ -6,7 +6,7 @@ def rec(rate=16000):
         print("please say something")
         audio = r.listen(source)
 
-    with open("recording.wav", "wb") as f:
+    with open("Listen1/recording.wav", "wb") as f:
         f.write(audio.get_wav_data())
 
 rec()
